@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="static/style.css">
     <title>Sign Up</title>
   </head>
   <body>
-    <a href="index.html"><button>Back To Entry Point</button></a>
+    <a href="/linker">Back To linker</a>
     <h1><u>Sign up to get a link!</u></h1>
-    <form>
+    <form action="/signup/confirm" method="POST">
       <label for="username">Username: </label>
       <input name="username" type="text"></input></p>
-      <label for="email">Email: </label>
-      <input name="email" type="text"></input><br>
       <input type="submit" value="Get Link"></input>
     </form>
-    <script src="cookie.js"></script>
+    <script src="static/cookie.js"></script>
   </body>
 </html>
