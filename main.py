@@ -5,8 +5,15 @@ from flask import Flask
 from flask import render_template
 from flask import request
 
+#Email modules
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
+
 #Creates the server object
 app = Flask("app")
+#Gets config file
+app.config.from_object("config")
+
 
 
 #This returns default page
@@ -37,9 +44,21 @@ def leaderboard():
 @app.route("/signup/confirm", methods=["POST", "GET"])
 def sendEmail():
     if request.method == "POST":
-        return render_template(
-            "check_email.html", username=request.form["username"])
-
+      message = Mail(
+        from_email="magik_smith@outlook.com",
+        to_emails=request.form["email"],
+        subject="Here is the link to the website!",
+        html_content='''
+        <p>Thanks for doing this, %s! Now go, share this, and get as many clicks as you can! </p>
+        <a href="https://www.usa.gov/register-to-vote">https://www.usa.gov.register-to-vote</a>
+        ''' %request.form["username"])
+      try:
+        sg = SendGridAPIClient(app.config.get("SENDGRID_API_KEY"))
+        sg.send(message)
+        return render_template("check_email.html", username=request.form["username"]
+        )
+      except Exception as e:
+        return e.message
 
 #Finally, start up the server
 if __name__ == "__main__":
