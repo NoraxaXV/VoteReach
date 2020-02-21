@@ -48,12 +48,12 @@ def sendEmail():
     if request.method == "POST":
       #This contains the email to be sent
       message = Mail(
-        from_email="magik_smith@outlook.com",
+        from_email="asmith10@dekalbcentral.net",
         to_emails=request.form["email"],
         subject="Here is the link to the website!",
         html_content='''
         <p>Thanks for doing this, %s! Now go, share this, and get as many clicks as you can! </p>
-        <a href="https://www.usa.gov/register-to-vote">https://www.usa.gov/register-to-vote</a>
+        <a href="http://bit.ly/rebornMaster">https://www.usa.gov/register-to-vote</a>
         ''' %request.form["username"])
       #This sends the email
       try:
