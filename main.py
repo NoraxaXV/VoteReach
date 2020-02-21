@@ -3,7 +3,7 @@
 #Imports modules
 import os
 
-from flask import Flask
+from flask import Flask, url_for, redirect
 from flask import render_template
 from flask import request
 
@@ -15,7 +15,7 @@ from sendgrid.helpers.mail import Mail
 app = Flask("app")
 
 # Gets config file
-app.config.from_object('config')
+app.config.from_pyfile('config.py')
 
 
 #This returns default page
@@ -53,7 +53,7 @@ def sendEmail():
         subject="Here is the link to the website!",
         html_content='''
         <p>Thanks for doing this, %s! Now go, share this, and get as many clicks as you can! </p>
-        <a href="http://bit.ly/rebornMaster">https://www.usa.gov/register-to-vote</a>
+        <a href="https://votereach-1.aaronsmith8.repl.co/register-to-vote">https://www.usa.gov/register-to-vote</a>
         ''' %request.form["username"])
       #This sends the email
       try:
@@ -63,6 +63,10 @@ def sendEmail():
         )
       except Exception as e:
         return e.message
+
+@app.route("/register-to-vote")
+def updateLink():
+  return redirect("https://www.usa.gov/register-to-vote")
 
 #Finally, start up the server
 if __name__ == "__main__":
