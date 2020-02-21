@@ -1,1 +1,64 @@
-/*  Nothing here yet...*/
+/* I an still arranging things... the different color backgrounds are so I can see the different divs. */
+body {
+    background: lightblue ;
+    margin: 25px;
+}
+
+div.Steps {
+    height: 150px;
+    width: 75%;
+    float: left;
+    background-color: antiquewhite;
+   
+}
+
+div.Button{
+    height: 100px;
+    width: 25%;
+    float: right;
+    background-color: aqua;
+}    
+div.About{
+    float: left;
+    background-color: azure;
+}
+
+
+button{ 
+    height: 100px;
+    width:100%;
+    font-size: 40px;
+    background-color: white;
+    }
+    
+div.About{
+    float: left;
+    background-color: azure;
+}
+
+
+h1 {
+    font-size: 80px;
+    text-align: center;
+}
+
+div.LB{
+    float: right;
+    background-color: beige;
+}
+
+div.Full_LB{
+    float: right;
+    background-color: bisque;
+}
+
+div.Stay_Connected{
+    float: left;
+    background-color: blue;
+}
+
+div.About{
+    float: left;
+    background-color: azure;
+}
+
