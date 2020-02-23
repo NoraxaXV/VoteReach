@@ -7,6 +7,15 @@
 </head>
 
 <body>
+  <!--This prints any messages alerts from the server-->
+	{% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <p>{{message}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
 	<a href="/linker"><button>To Entry Point</button></a>
 
         <h1>Vote Reach</h1>
@@ -35,7 +44,7 @@
         </div>
         
         <div class="Full_LB">
-        <h3>FULL LEADER BOARD</h3>
+        <h3 onclick="window.location.href='/leaderboard'">FULL LEADER BOARD</h3>
         </div>
         
         <div class="Stay_Connected">

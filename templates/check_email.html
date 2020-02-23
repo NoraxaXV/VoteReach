@@ -7,6 +7,15 @@
 </head>
 
 <body>
+  <!--This prints any messages alerts from the server-->
+	{% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <p>{{message}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
 	<p>Thanks for joining us, {{username}}!<p>
 			<P>Go check your email to get our link!</p>
 			<a href="/linker">Click Here to go back</a>

@@ -1,18 +1,58 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="/static/style.css">
-    <title>VoteReach: Sign Up</title>
-  </head>
-  <body>
-    <a href="/linker">Back To linker</a>
-    <h1><u>Sign up to get a link!</u></h1>
-    <form action="/signup/confirm" method="POST">
-      <label for="username">Username: </label>
-      <input name="username" type="text"></input></p>
-      <label for="email">Email: </label>
-      <input name="email" type="text"></input></p>
-      <input type="submit" value="Get Link"></input>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="/static/style.css">
+	<link rel="stylesheet" type="text/css" href="/static/sign_up_style.css">
+	<title>VoteReach: Sign Up</title>
+
+	<script>
+		function validateForm()  
+      alert("Validating form...");
+      var name = document.forms["sign_up"]["username"].value;
+      var email = document.forms["sign_up"]["email"].value;
+      if (name == "" || name == null) {
+        alert("Name required");
+        return false;
+      } 
+      if(email == "" || email == null){
+        alert("Email required.");
+        return false;
+      }
+	</script>
+
+
+</head>
+
+<body>
+  <!--This prints any messages alerts from the server-->
+	{% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <p>{{message}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <a href="/linker">Back To linker</a>
+
+	<div style="text-align:center;">
+
+		<h3><u>Sign up to get a link!</u></h3>
+		<form name="sign_up" action="/signup/confirm" onsubmit="return validateForm()" method="POST">
+			<div class="tooltip">
+				<label for="username">Username: </label>
+        <input name="username" type="text" required>
+        <span class="tooltiptext">This the username for your public profile.</span>
+		  </div>
+      
+      <div>
+        <label for="email">Email: </label>
+        <input name="email" type="email" required>
+      </div>
+      
+      <input type="submit" value="Get Link">
     </form>
+  </div>
   </body>
 </html>

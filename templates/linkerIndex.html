@@ -7,6 +7,15 @@
 </head>
 
 <body>
+  <!--This prints any messages alerts from the server-->
+	{% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <p>{{message}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
 	<h3>This page connects our pages for easy access. Click the buttons below to view a page.</h3>
 	<a href="/"><button>Jala: Go To Main Page</button></a>
   <a href="/signup"><button>Aaron: Sign Up</button></a>

@@ -62,3 +62,7 @@ div.About{
     background-color: azure;
 }
 
+p.flashedMessage{
+  background-color: crimson;
+  color: bisque;
+}

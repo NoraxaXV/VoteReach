@@ -7,6 +7,17 @@
 </head>
 
 <body>
-	<a href="/linker"><button>Back To Entry Point</button></a>    
+  <!--This prints any messages alerts from the server-->
+	{% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <p>{{message}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+	<a href="/linker"><button>Back To Entry Point</button></a>
+  
+      
   </body>
 </html>
