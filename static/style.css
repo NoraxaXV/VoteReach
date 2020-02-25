@@ -1,6 +1,6 @@
 /* I an still arranging things... the different color backgrounds are so I can see the different divs. */
 body {
-    background: lightblue ;
+    background: lightblue;
     margin: 25px;
 }
 
@@ -8,61 +8,39 @@ div.Steps {
     height: 150px;
     width: 75%;
     float: left;
-    background-color: antiquewhite;
-   
+    background-color: antiquewhite;  
 }
 
-div.Button{
-    height: 100px;
+.button {
+    height: 150px;
     width: 25%;
     float: right;
-    background-color: aqua;
-}    
-div.About{
-    float: left;
-    background-color: azure;
+    background-color: green;
 }
 
-
-button{ 
+div.About {
+    float: left;
+    background-color: azure;
     height: 100px;
-    width:100%;
-    font-size: 40px;
-    background-color: white;
-    }
-    
-div.About{
-    float: left;
-    background-color: azure;
+    width: 33%;
 }
-
 
 h1 {
     font-size: 80px;
     text-align: center;
 }
 
-div.LB{
+div.LB {
     float: right;
-    background-color: beige;
+    background-color: cadetblue;
 }
 
-div.Full_LB{
+div.Full_LB {
     float: right;
     background-color: bisque;
 }
 
-div.Stay_Connected{
+div.Stay_Connected {
     float: left;
     background-color: blue;
-}
-
-div.About{
-    float: left;
-    background-color: azure;
-}
-
-p.flashedMessage{
-  background-color: crimson;
-  color: bisque;
 }

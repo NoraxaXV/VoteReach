@@ -7,14 +7,13 @@
 /* Tooltip text */
 .tooltip .tooltiptext {
   visibility: hidden;
-  font-size: 15px;
-  background-color: cornsilk;
+  font-size: 10px;
+  background-color: darkslategray;
   color: #fff; 
   position: absolute;
-  text-align: left;
+  text-align: center;
   z-index: 1;
-  right: 105%; 
-
+  left: 55px;
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
@@ -28,4 +27,9 @@ input:invalid {
 
 input:focus:invalid {
   box-shadow: none;
+}
+
+p.flashedMessage{
+  background-color: crimson;
+  color: bisque;
 }

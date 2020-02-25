@@ -2,39 +2,54 @@
 <html>
 
 <head>
+  <script>
+		window.onerror=function(msg){
+      alert(msg);
+    }
+	</script>
+
 	<link rel="stylesheet" type="text/css" href="/static/style.css">
 	<link rel="stylesheet" type="text/css" href="/static/sign_up_style.css">
 	<title>VoteReach: Sign Up</title>
 
-	<script>
-		function validateForm()  
-      alert("Validating form...");
-      var name = document.forms["sign_up"]["username"].value;
-      var email = document.forms["sign_up"]["email"].value;
-      if (name == "" || name == null) {
-        alert("Name required");
-        return false;
-      } 
-      if(email == "" || email == null){
-        alert("Email required.");
-        return false;
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>	
+  <script>
+		function readTextFile(file)
+    {
+      var text="";
+      var rawFile = new XMLHttpRequest();
+      rawFile.open("GET", file, false);
+      rawFile.onreadystatechange = function ()
+      {
+        if(rawFile.readyState === 4)
+        {
+          if(rawFile.status === 200 || rawFile.status == 0)
+          {
+            var allText = rawFile.responseText;
+            alert(allText);
+            text=allText;
+          }
+        }
       }
+      rawFile.send(null);
+      return allText;
+    }
+		
+    function validateForm()  {
+      alert(readTextFile("/userdata.txt"));
+    }
 	</script>
 
 
 </head>
 
 <body>
-  <!--This prints any messages alerts from the server-->
-	{% with messages = get_flashed_messages() %}
-    {% if messages %}
-      {% for message in messages %}
-        <p>{{message}}</p>
-      {% endfor %}
-    {% endif %}
-  {% endwith %}
+	<!--This prints any messages alerts from the server-->
+	{% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
+	<p>{{message}}</p>
+	{% endfor %} {% endif %} {% endwith %}
 
-  <a href="/linker">Back To linker</a>
+	<a href="/linker">Back To linker</a>
 
 	<div style="text-align:center;">
 

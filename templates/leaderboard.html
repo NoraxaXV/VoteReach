@@ -2,21 +2,38 @@
 <html>
 
 <head>
+	<script>
+		window.onerror=function(msg){
+      alert(msg);
+    }
+	</script>
+
 	<title>VoteReach: Leaderboard</title>
-	<link rel="stylesheet" type="text/css" href="/static/style.css">
+	<link rel="stylesheet" type="text/css" href="/static/style.css"></link>
+  	<link rel="stylesheet" type="text/css" href="/static/leaderboard_style.css"></link>
 </head>
 
 <body>
-  <!--This prints any messages alerts from the server-->
-	{% with messages = get_flashed_messages() %}
-    {% if messages %}
-      {% for message in messages %}
-        <p>{{message}}</p>
-      {% endfor %}
-    {% endif %}
-  {% endwith %}
-
+	<!--This prints any messages alerts from the server-->
+	<ul>
+		{% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
+		<li>{{message}}</li>
+		{% endfor %} {% endif %} {% endwith %}
+	</ul>
 	<a href="/linker"><button>Back To Entry Point</button></a>
+  <hr>
+	<h1><u>Leaderboard</u></h1>
+  <hr>
+  <h4>Top #1: {{data[0].username}} at {{data[0].clicks}} clicks!</h4>
+	<hr>
+  <div class="fullLB">
+  <ol>
+	  <!--This loops through the data supplied by the server and creates a new list element for each one-->
+    {% for info in data %}
+		<li class="LBDisp">{{info.username}}: {{info.clicks}}</li>
+		{% endfor %}
+	</ol>
+  </div>
   
       
   </body>

@@ -2,54 +2,60 @@
 <html>
 
 <head>
+	<script>
+		window.onerror=function(msg){
+      alert(msg);
+    }
+	</script>
+
 	<link rel="stylesheet" type="text/css" href="/static/style.css">
+	</link>
 	<title>VoteReach</title>
 </head>
 
 <body>
-  <!--This prints any messages alerts from the server-->
-	{% with messages = get_flashed_messages() %}
-    {% if messages %}
-      {% for message in messages %}
-        <p>{{message}}</p>
-      {% endfor %}
-    {% endif %}
-  {% endwith %}
+	<!--This prints any messages alerts from the server-->
+	{% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
+	<p>{{message}}</p>
+	{% endfor %} {% endif %} {% endwith %}
 
 	<a href="/linker"><button>To Entry Point</button></a>
+  
+  <hr>  
+            
+  <h1>Vote Reach</h1>
+    
+  <hr>
 
-        <h1>Vote Reach</h1>
-    
-            <hr>
-    
-        <div class="Steps">
-         <h3>What to do</h3>
-            <ol>
-                <li> Item 1</li>
-                <li> Item 2</li>
-                <li> Item 3</li>
-            </ol>
-        </div>
+  <div class="Steps">
+    <h3>What to do</h3>
+    <ol>
+      <li> Click ¨Get Link¨</li>
+      <li> Enter your email address and your username </li>
+      <li> Check your email for a link</li>
+      <li> Share the link with as many people as possible in order to see yourself on the leaderboard </li>
+    </ol>
+  </div>
    
-        <div class="Button">    
-         <button type="button" onclick="window.location.href ='/signup';">Get link </button>
-        </div>
+  <div>
+    <button class="button" type="button" onclick="window.location.href ='/signup';">Get link</button>
+  </div>
      
-        <div class="About">
-        <h3>About us</h3>
-        </div>
+  <div class="About">
+    <h3>About us</h3>
+  </div>
         
-        <div class="LB">
-        <h3>Leader Board</h3>
-        </div>
+  <div class="LB">
+    <h3>Leader Board</h3>
+  </div>
         
-        <div class="Full_LB">
-        <h3 onclick="window.location.href='/leaderboard'">FULL LEADER BOARD</h3>
-        </div>
+  <div class="Full_LB">
+    <h3 onclick="window.location.href='/leaderboard';">FULL LEADER BOARD</h3>
+  </div>
         
-        <div class="Stay_Connected">
-        <h3>Stay Connected</h3>
-        </div>
+  <div class="Stay_Connected">
+    <h3>Stay Connected</h3>
+  </div>
 
-  </body>
+</body>
 </html>
