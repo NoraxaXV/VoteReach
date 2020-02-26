@@ -80,6 +80,9 @@ div.Full_LB {
     color: blue;
 }
 
+div.Full_LB:hover{
+    color: #1955c5;
+}
 div.Stay_Connected {
     float: left;
     background-color: blue;

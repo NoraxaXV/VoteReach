@@ -2,11 +2,14 @@
 <html>
 
 <head>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" />  
+
 	<title>HAZARD ZONE</title>
 </head>
 
 <body>
-	<script>
+	<a href="/"><button>ESCAPE!</button></a>
+  <script>
 		window.onerror=function(msg){
         alert(msg);
       }
