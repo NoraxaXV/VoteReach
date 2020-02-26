@@ -45,16 +45,26 @@ def incrementUserClicks(username):
 
   os.rename("userdata.txt.tmp", "userdata.txt")
 
-def getAllData():
+def getData(num=-1):
   dataList=[] 
-  
   with open("userdata.txt", "r") as data:
     for fullLine in data:
       splitLine = fullLine.split("|")
       name=splitLine[0]
       numOfClicks=int(splitLine[1])
       dataList.append({"username": name, "clicks": numOfClicks})
-  
-  return dataList
+    
+    sortedData=sorted(dataList, key=lambda i: (-i["clicks"], i["username"]))
+    
+ 
+    
+    if num != -1:
+      returnData=[]     
+      for i in range(0,num):
+        returnData.append(sortedData[i])
 
+      return returnData
+    else: 
+      return sortedData
+    
 

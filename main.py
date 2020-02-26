@@ -23,7 +23,7 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 #This returns default page
 @app.route("/")
 def main():
-  return render_template("index.html")
+  return render_template("index.html", data=getData(num=5))
 
 
 #This returns the link page
@@ -45,9 +45,7 @@ def signup():
 #This returns the leaderboard
 @app.route("/leaderboard")
 def leaderboard():
-  sortedClickData=sorted(getAllData(), key=lambda i: (i["clicks"], i["username"]), reverse=True)
-  
-  return render_template("leaderboard.html", data=sortedClickData)
+  return render_template("leaderboard.html", data=getData())
 
 
 #This is the page that will send the email
@@ -56,7 +54,9 @@ def sendEmail():
   if request.method == "POST":
     username=request.form["username"]
     if getUserClicks(username) != -1:
-      return redirect(url_for("signup"))
+      redirect("/signup")
+      flash("Username taken!")
+      return render_template("sign_up.html")
 
     addUser(username)
     

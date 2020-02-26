@@ -22,9 +22,9 @@
 	<a href="/linker"><button>To Entry Point</button></a>
   
   <hr>  
-            
-  <h1>Vote Reach</h1>
-    
+  <div class="header">          
+    <h1 onclick="window.location.href ='/';"><u>Vote Reach</u></h1>
+  </div>
   <hr>
 
   <div class="Steps">
@@ -38,7 +38,7 @@
   </div>
    
   <div>
-    <button class="button" type="button" onclick="window.location.href ='/signup';">Get link</button>
+    <button class="button" type="button" onclick="window.location.href ='/signup';"><u>Get link</u></button>
   </div>
      
   <div class="About">
@@ -46,11 +46,24 @@
   </div>
         
   <div class="LB">
-    <h3>Leader Board</h3>
+    <h3>Top #5</h3>
+    <table stylr="width: 25%">
+      <tr>
+        <th>Username</th>
+        <th>Clicks</th>
+      </tr>
+      {% for info in data %}
+	  	<tr>
+        <td>{{info.username}}</td>
+       <td>{{info.clicks}}</td>
+      </tr>
+		  {% endfor %}
+        
+    </table>
   </div>
         
   <div class="Full_LB">
-    <h3 onclick="window.location.href='/leaderboard';">FULL LEADER BOARD</h3>
+    <h3 onclick="window.location.href='/leaderboard';"><u>FULL LEADER BOARD</u></h3>
   </div>
         
   <div class="Stay_Connected">

@@ -15,24 +15,36 @@
 
 <body>
 	<!--This prints any messages alerts from the server-->
-	<ul>
 		{% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
 		<li>{{message}}</li>
 		{% endfor %} {% endif %} {% endwith %}
 	</ul>
 	<a href="/linker"><button>Back To Entry Point</button></a>
   <hr>
-	<h1><u>Leaderboard</u></h1>
+  <div class="header">          
+    <h1 onclick="window.location.href ='/';"><u>Vote Reach</u></h1>
+    <h2>Leaderboard</h2>
+  </div>
+
   <hr>
   <h4>Top #1: {{data[0].username}} at {{data[0].clicks}} clicks!</h4>
 	<hr>
   <div class="fullLB">
-  <ol>
-	  <!--This loops through the data supplied by the server and creates a new list element for each one-->
+	<table style="width: 100%">
+    <tr>
+      <th>Username</th>
+      <th>Clicks<th>
+    </tr>
+
+	  <!--This loops through the data supplied by the server and creates a new element for each one-->
     {% for info in data %}
-		<li class="LBDisp">{{info.username}}: {{info.clicks}}</li>
+		<tr>
+      <td>{{info.username}}</td>
+      <td>{{info.clicks}}</td>
+    </tr>
 		{% endfor %}
-	</ol>
+    
+	</table>
   </div>
   
       

@@ -1,8 +1,27 @@
 /* I an still arranging things... the different color backgrounds are so I can see the different divs. */
+
+
 body {
-    background: lightblue;
-    margin: 25px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  padding: 10px;
+  background: #efefff;
 }
+
+
+/* Header*/
+.header {
+  width: 100%;
+  height: 15%;
+  padding: 30px;
+  text-align: center;
+  background: lightblue;
+}
+
+.header h1 {
+  font-size: 50px;
+  text-shadow: 3px 2px #3e3e88;
+}
+
 
 div.Steps {
     height: 150px;
@@ -13,34 +32,71 @@ div.Steps {
 
 .button {
     height: 150px;
-    width: 25%;
+    width: 20%;
     float: right;
-    background-color: green;
+    background-color: white;
+    font-size: 30px;
+    color: blue;
 }
 
 div.About {
     float: left;
-    background-color: azure;
+    background-color: #ff4e4e;
     height: 100px;
     width: 33%;
+    margin: 25px;
 }
 
 h1 {
     font-size: 80px;
     text-align: center;
+    margin: 25px;
 }
 
 div.LB {
     float: right;
     background-color: cadetblue;
+    margin: 25px;
+    text-align: center;
 }
 
 div.Full_LB {
     float: right;
     background-color: bisque;
+    margin: 25px;
+    color: blue;
 }
 
 div.Stay_Connected {
     float: left;
     background-color: blue;
+    margin: 25px;
+}
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+  text-align: left;
+  border: 1px solid black;
+}
+
+table {
+    counter-reset: rowNumber;
+}
+
+table tr:not(:first-child) {
+    counter-increment: rowNumber;
+}
+table tr td:first-child::before {
+    content: counter(rowNumber);
+    min-width: 1em;
+    margin-right: 0.5em;
 }
