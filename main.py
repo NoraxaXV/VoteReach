@@ -11,6 +11,8 @@ from sendgrid.helpers.mail import Mail
 #Imports modules
 import os
 from datareader import *
+import datetime
+
 
 # Creates the server object (Doesn't start it yet, though)
 app = Flask("app")
@@ -37,8 +39,10 @@ def test_bed():
   return render_template("test_bed.html")
 
 #This returns the signup page and gets form requests
-@app.route("/signup", methods=["GET"])
-def signup():
+@app.route("/signup/<msg>", methods=["GET"])
+def signup(msg):
+  if msg != "enter":
+    flash("Username taken! Please try a different name")
   return render_template("sign_up.html")
 
 
@@ -49,14 +53,12 @@ def leaderboard():
 
 
 #This is the page that will send the email
-@app.route("/signup/confirm", methods=["POST", "GET"])
+@app.route("/confirm", methods=["POST", "GET"])
 def sendEmail():
   if request.method == "POST":
     username=request.form["username"]
     if getUserClicks(username) != -1:
-      redirect("/signup")
-      flash("Username taken!")
-      return render_template("sign_up.html")
+      return redirect(url_for("signup", msg="user-name-taken"))
 
     addUser(username)
     
@@ -82,12 +84,16 @@ def sendEmail():
 #Then we redirect the clicker to the registration website
 @app.route("/register-to-vote/<id>")
 def updateLink(id):
-  if getUserClicks(id) == -1:
-    return "Link no longer valid!"
-  else:
+
+  cookie=request.cookies.get(id)
+  userExists=(getUserClicks(id) != -1)
+  
+  if userExists == True and cookie != "exists":
     incrementUserClicks(id)   
-    
-  return redirect("https://www.usa.gov/register-to-vote")
+
+  resp=redirect("https://www.usa.gov/register-to-vote")
+  resp.set_cookie(id, "exists", expires=datetime.datetime.now() + datetime.timedelta(days=7))
+  return resp
 
 @app.after_request
 def add_header(r):

@@ -1,6 +1,7 @@
+
+
 /* Username input styling */
 div.enterUsername {
-  position: absolute;
   margin: auto;
   width: 50%;
   border: 3px solid blue;
@@ -9,19 +10,6 @@ div.enterUsername {
   left: 25%;
 }
 
-/* Tooltip */
-.tooltiptext {
-  visibility: hidden;
-  width: 100px;
-  font-size: 13px;
-  background-color: darkkhaki;
-  color: #fff; 
-  position: absolute;
-  text-align: center;
-  z-index: 1;
-  left: 10%;
-  top: -20%;
-}
 
 div.enterUsername label.usernameLabel{
   border-bottom: 2px dotted black;
@@ -33,19 +21,14 @@ div.enterUsername input.usernameInput {
   padding: 5px;
 }
 
-/* Show the tooltip text when you mouse over the tooltip container */
-label.usernameLabel:hover .tooltiptext, label.emailLabel:hover .tooltiptext {
-  visibility: visible;
-}
 
 
 
 /* Email input styling */
 div.enterEmail {
-  position: absolute;
   margin: auto;
   width: 50%;
-  border: 3px solid blue;
+  border: 3px solid blue;  
   padding: 10px;
   top: 70%;
   left: 25%;
@@ -61,16 +44,31 @@ div.enterEmail input.emailInput {
   padding: 5px;
 }
 
+/* Tooltip */
+.tooltiptext {
+  visibility: hidden;
+  width: 100px;
+  font-size: 13px;
+  background-color: darkkhaki;
+  color: #fff; 
+  position: absolute;
+  text-align: center;
+  z-index: 1;
+  left: 10%;
+  top: -20%;
+}
+/* Show the tooltip text when you mouse over the tooltip container */
+label.usernameLabel:hover .tooltiptext, label.emailLabel:hover .tooltiptext {
+  visibility: visible;
+}
+
 
 /* Submit button */
 input.submit{
-  position: absolute;
   margin: auto;
   width: 50%;
   border: 3px solid blue;
   padding: 10px;
-  top: 90%;
-  left: 25%;
   font-size: 20px;
 }
 

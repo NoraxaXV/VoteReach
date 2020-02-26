@@ -1,10 +1,10 @@
 AkihitoKayabaReborn|1
 iPickBadUserNames|2
-RebornMaster|7
+RebornMaster|15
 Aaron Smith|5 
 clickArtiste|3
 MisterNobody|1
 _Collins_|3
-iLoveClickingButtons|15
+iLoveClickingButtons|14
 I_AM_AWESOME!|3
-deadlyLinks|17
+TheOneAndOnly|0 
