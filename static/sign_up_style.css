@@ -1,4 +1,8 @@
-
+/*
+TODO: 
+-add some spacing between the inputs
+-FIX THE TOOPTIPS!
+ */
 
 /* Username input styling */
 div.enterUsername {
@@ -44,7 +48,7 @@ div.enterEmail input.emailInput {
   padding: 5px;
 }
 
-/* Tooltip */
+/* Tooltip*/
 .tooltiptext {
   visibility: hidden;
   width: 100px;
