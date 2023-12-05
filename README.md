@@ -1,4 +1,4 @@
-#VoteReach
+# VoteReach
 The main file for the server is _main.py_
 
 _JS_ and _CSS_ files go in the _'static'_ folder
